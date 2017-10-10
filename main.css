@@ -1,0 +1,83 @@
+
+body.cv{
+	text-transform: none;
+}
+
+.thai {
+	font-family: "Helvetica";
+}
+
+p.headerbar{
+	text-align: center;
+}
+
+p.pub{
+	text-transform: none;
+	font-family: "Century Gothic";
+	font-size: 18px;
+}
+
+.body {
+	font-family: "Century Gothic";
+	font-size: 18px;
+}
+
+.header {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff8c00;
+}
+
+.sub{
+	font-size: 10px;
+	color: FFFFFF;
+}
+
+tr.headerbar{
+	background-color: #ff8c00;
+}
+
+tr.proj:hover{
+	background-color: #FFFFCC;
+}
+
+
+td.proj_left_col{
+	text-align:right;
+	width: 10%;
+}
+
+td.proj_right_col{
+	text-align:left;
+	width: 90%;
+}
+
+a.proj{
+	target:_blank;
+}
+
+a.proj:link{
+	color:#ff8c00;
+	text-decoration: none;
+}
+a.proj:visited{
+	color:#ff8c00;
+	text-decoration: none;
+}
+a.proj:hover {
+	color: #000000;
+	text-decoration: none;
+}
+
+a.bar:link {color:#FFFFFF;text-decoration: none;}
+a.bar:visited {color:#FFFFFF;text-decoration: none;}
+a.bar:hover {color: #000000;text-decoration: underline;	}
+
+a.bar {
+	font-size: 20px;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+}
+
+
