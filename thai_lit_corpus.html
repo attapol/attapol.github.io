@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TLC Project</title>
+  </head>
+
+  <body>
+		<div id="included_navbar"> </div>
+
+	  <div class="container">
+		<div class="row mt-5">
+			<div class="col-lg-12">
+        <h1>Thai Literature Corpus (TLC) </h1>
+		
+      <p><h5>A corpus of sectionized Thai literature texts from <a href=https://vajirayana.org> Vajirayana Digital Library</a></p></h5> 
+	  <p>by Jitkapat Sawatphol (Faculty of Arts, Chulalongkorn University)</p>
+      </div>
+	</div>
+		
+		<div class="row mt-4">
+			<div class="col-lg-12">
+      <h2>Usage example</h2>
+		<p>Extract the tlc file then import each document with:</p>
+		<code>doc = json.loads(open(filename).read())</code>
+		<p></p>
+		<p>You will get a python list of dictionaries containing chapter number, title, and text of each section of each text.</p>
+		<p>Then the text (list of lines) of each chapter can be accessible with:</p>
+		<code>doc['text']</code>
+		<p></p>
+		<p>You can also get the title of each chapter with:<p>
+		<code>doc['title']</code>
+		<p></p>
+		<p>and chapter number with:</p> 
+		<code>doc['ch_num']</code>
+		<p></p>				  
+      </div>
+    </div>
+	<div class="row mt-4">
+			<div class="col-lg-12">
+      <h2>Download</h2>
+		  <ul>
+			<li><b><a href =http://pioneer.chula.ac.th/~tattapol/thailit/thailit_release1.tar.gz>tlc release 1.0</a></b> (a total of 25 documents, 113,981 lines, 28,775,761 characters ) </li>
+				<ol>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/กากีกลอนสุภาพ.json" download="กากีกลอนสุภาพ">กากีกลอนสุภาพ</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/ขุนช้างขุนแผน.json" download="ขุนช้างขุนแผน">ขุนช้างขุนแผน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นกกระจาบกลอนสวด.json" download="นกกระจาบกลอนสวด">นกกระจาบกลอนสวด</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นางอุทัยกลอนสวด.json" download="นางอุทัยกลอนสวด">นางอุทัยกลอนสวด</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศบางเรื่องของสุนทรภู่.json" download="นิราศบางเรื่องของสุนทรภู่">นิราศบางเรื่องของสุนทรภู่</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศพระแท่นดงรัง สามเณรกลั่น.json" download="นิราศพระแท่นดงรัง สามเณรกลั่น">นิราศพระแท่นดงรัง สามเณรกลั่น</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศรัตน.json" download="นิราศรัตน">นิราศรัตน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศลอนดอน.json" download="นิราศลอนดอน">นิราศลอนดอน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศวังบางยี่ขัน.json" download="นิราศวังบางยี่ขัน">นิราศวังบางยี่ขัน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศวัดเจ้าฟ้า.json" download="นิราศวัดเจ้าฟ้า">นิราศวัดเจ้าฟ้า</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศหนองคาย.json" download="นิราศหนองคาย">นิราศหนองคาย</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศอิเหนา.json" download="นิราศอิเหนา">นิราศอิเหนา</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศเมืองหลวงพระบาง.json" download="นิราศเมืองหลวงพระบาง">นิราศเมืองหลวงพระบาง</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทลครเรื่องอาบูหะซัน.json" download="บทลครเรื่องอาบูหะซัน">บทลครเรื่องอาบูหะซัน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องคาวี.json" download="บทละครนอกเรื่องคาวี">บทละครนอกเรื่องคาวี</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ.json" download="บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ">บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องสังข์ทอง.json" download="บทละครนอกเรื่องสังข์ทอง">บทละครนอกเรื่องสังข์ทอง</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องสังข์ศิลป์ชัย" download="บทละครนอกเรื่องสังข์ศิลป์ชัย">บทละครนอกเรื่องสังข์ศิลป์ชัย</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องอภัยนุราช.json" download="บทละครนอกเรื่องอภัยนุราช">บทละครนอกเรื่องอภัยนุราช</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องไกรทอง" download="บทละครนอกเรื่องไกรทอง">บทละครนอกเรื่องไกรทอง</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องไชยเชษฐ์" download="บทละครนอกเรื่องไชยเชษฐ์">บทละครนอกเรื่องไชยเชษฐ์</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครเรื่องยุขัน.json" download="บทละครเรื่องยุขัน">บทละครเรื่องยุขัน</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครเรื่องระเด่นลันได.json" download="บทละครเรื่องระเด่นลันได">บทละครเรื่องระเด่นลันได</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/พระอภัยมณี.json" download="พระอภัยมณี">พระอภัยมณี</a></li>
+					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/ลักษณะวงศ์.json" download="ลักษณะวงศ์">ลักษณะวงศ์</a></li>
+				</ol>
+		  </ul>
+      </div>
+    </div>
+    </div>
+	<p></p>
+	<p></p>
+	<p></p>
+		
+		
+
+    </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+			<script> $(function(){ $("#included_navbar").load("nav.htm"); }); </script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
