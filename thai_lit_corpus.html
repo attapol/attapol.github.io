@@ -6,85 +6,332 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TLC Project</title>
+    <title>Thai Literature Corpora</title>
   </head>
 
   <body>
 		<div id="included_navbar"> </div>
 
 	  <div class="container">
-		<div class="row mt-5">
-			<div class="col-lg-12">
-        <h1>Thai Literature Corpus (TLC) </h1>
-		
-      <p><h5>A corpus of sectionized Thai literature texts from <a href=https://vajirayana.org> Vajirayana Digital Library</a></p></h5> 
-	  <p>by Jitkapat Sawatphol (Faculty of Arts, Chulalongkorn University)</p>
+      <div class="row mt-5">
+        <div class="col-lg-12">
+          <h1><strong>Thai Literature Corpora (TLC)</strong></h1>
+			<p><h5><b>Corpora of machine-ingestible Thai classical literature texts.</b></p></h5>
+			<p>by Jitkapat Sawatphol (Faculty of Arts, Chulalongkorn University)</p>
+        </div>
       </div>
-	</div>
-		
-		<div class="row mt-4">
-			<div class="col-lg-12">
-      <h2>Usage example</h2>
-		<p>Extract the tlc file then import each document with:</p>
-		<code>doc = json.loads(open(filename).read())</code>
-		<p></p>
-		<p>You will get a python list of dictionaries containing chapter number, title, and text of each section of each text.</p>
-		<p>Then the text (list of lines) of each chapter can be accessible with:</p>
-		<code>doc['text']</code>
-		<p></p>
-		<p>You can also get the title of each chapter with:<p>
-		<code>doc['title']</code>
-		<p></p>
-		<p>and chapter number with:</p> 
-		<code>doc['ch_num']</code>
-		<p></p>				  
-      </div>
-    </div>
-	<div class="row mt-4">
-			<div class="col-lg-12">
-      <h2>Download</h2>
-		  <ul>
-			<li><b><a href =http://pioneer.chula.ac.th/~tattapol/thailit/thailit_release1.tar.gz>tlc release 1.0</a></b> (a total of 25 documents, 113,981 lines, 28,775,761 characters ) </li>
-				<ol>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/กากีกลอนสุภาพ.json" download="กากีกลอนสุภาพ">กากีกลอนสุภาพ</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/ขุนช้างขุนแผน.json" download="ขุนช้างขุนแผน">ขุนช้างขุนแผน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นกกระจาบกลอนสวด.json" download="นกกระจาบกลอนสวด">นกกระจาบกลอนสวด</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นางอุทัยกลอนสวด.json" download="นางอุทัยกลอนสวด">นางอุทัยกลอนสวด</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศบางเรื่องของสุนทรภู่.json" download="นิราศบางเรื่องของสุนทรภู่">นิราศบางเรื่องของสุนทรภู่</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศพระแท่นดงรัง สามเณรกลั่น.json" download="นิราศพระแท่นดงรัง สามเณรกลั่น">นิราศพระแท่นดงรัง สามเณรกลั่น</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศรัตน.json" download="นิราศรัตน">นิราศรัตน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศลอนดอน.json" download="นิราศลอนดอน">นิราศลอนดอน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศวังบางยี่ขัน.json" download="นิราศวังบางยี่ขัน">นิราศวังบางยี่ขัน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศวัดเจ้าฟ้า.json" download="นิราศวัดเจ้าฟ้า">นิราศวัดเจ้าฟ้า</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศหนองคาย.json" download="นิราศหนองคาย">นิราศหนองคาย</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศอิเหนา.json" download="นิราศอิเหนา">นิราศอิเหนา</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/นิราศเมืองหลวงพระบาง.json" download="นิราศเมืองหลวงพระบาง">นิราศเมืองหลวงพระบาง</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทลครเรื่องอาบูหะซัน.json" download="บทลครเรื่องอาบูหะซัน">บทลครเรื่องอาบูหะซัน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องคาวี.json" download="บทละครนอกเรื่องคาวี">บทละครนอกเรื่องคาวี</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ.json" download="บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ">บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องสังข์ทอง.json" download="บทละครนอกเรื่องสังข์ทอง">บทละครนอกเรื่องสังข์ทอง</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องสังข์ศิลป์ชัย" download="บทละครนอกเรื่องสังข์ศิลป์ชัย">บทละครนอกเรื่องสังข์ศิลป์ชัย</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องอภัยนุราช.json" download="บทละครนอกเรื่องอภัยนุราช">บทละครนอกเรื่องอภัยนุราช</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องไกรทอง" download="บทละครนอกเรื่องไกรทอง">บทละครนอกเรื่องไกรทอง</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครนอกเรื่องไชยเชษฐ์" download="บทละครนอกเรื่องไชยเชษฐ์">บทละครนอกเรื่องไชยเชษฐ์</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครเรื่องยุขัน.json" download="บทละครเรื่องยุขัน">บทละครเรื่องยุขัน</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/บทละครเรื่องระเด่นลันได.json" download="บทละครเรื่องระเด่นลันได">บทละครเรื่องระเด่นลันได</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/พระอภัยมณี.json" download="พระอภัยมณี">พระอภัยมณี</a></li>
-					<li><a href="http://pioneer.chula.ac.th/~tattapol/thailit/tlc_release1/ลักษณะวงศ์.json" download="ลักษณะวงศ์">ลักษณะวงศ์</a></li>
-				</ol>
-		  </ul>
-      </div>
-    </div>
-    </div>
-	<p></p>
-	<p></p>
-	<p></p>
-		
-		
 
+      <div class="row mt-4">
+        <div class="col-lg-12">
+        <h2>Downloads</h2>
+		<p>As of 6/25/19, there are two set of texts:</p>
+        <ul>
+			<li><h4>TLC set:</h4></a></li>
+			<p>texts from <a href=https://vajirayana.org> Vajirayana Digital Library</a>, stored by chapters and stanzas (non-tokenized).</p>
+			<ul>
+				<li><b><a href =https://github.com/jitkapat/thailitcorpus/releases/download/v.2.0/tlc_v.2.0.tar.gz>tlc v.2.0</a></b> (6/17/19 : a total of 34 documents, 292,270 lines, 31,790,734 characters) </li>
+				<li><b><a href =https://github.com/jitkapat/thailitcorpus/releases/download/v.1.0/tlc_v.1.0.tar.gz>tlc v.1.0</a></b> (6/11/19 : a total of 25 documents, 113,981 lines, 28,775,761 characters) </li>
+			</ul>
+			<br>
+			<li><h4>TNHC set</h4></li>
+			<p>texts from Thai National Historical Corpus, stored by-lines (manually tokenized).</p>
+			<p></p>
+			<ul>
+				<li><b><a href =https://github.com/jitkapat/thailitcorpus/releases/download/v.1.0/tnhc_v.1.0.tar.gz>tnhc v.1.0</a></b> (6/25/19 : a total of 47 documents, 756,478 lines, 13,361,142 characters) </li>
+			</ul>	
+		</ul>
+		<p></p>
+        </div>
+      </div>
+	  
+	  <div class="row mt-4">
+        <div class="col-lg-12">
+        <h2>Raw data</h2>
+        <ul>
+        <li><b><a href =https://github.com/jitkapat/thailitcorpus/releases/download/1.0/vajirayana_archives.tar.gz>Vajirayana raw data</a></b> (.docx format, scraping required)</li>
+		<li><b><a href =https://github.com/jitkapat/thailitcorpus/releases/download/1.0/tnhc_archives.tar.gz>TNHC raw data</a></b> (plain texts, manually tokenized)</li>
+        </ul>
+        </div>
+      </div>
+	<br>
+	<div class="row">
+        <div class="col-lg-12">
+		<h2>Text lists </h2>
+		<p>WARNING: The following categories are NOT divived under supervision of any expert in Thai literature. Feedbacks will be greatly appreciated.</p>
+		<h4>TLC set (v.2.0)</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Texts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+				กลอนบทละคร
+                </td>
+                <td>
+                  <ul>
+                    <li>บทลครรามเกียรติ์ รัชกาลที่ ๒</li>
+					<li>บทลครเรื่องอาบูหะซัน</li>
+					<li>บทละครนอกเรื่องคาวี</li>
+					<li>บทละครนอกเรื่องพิกุลทอง</li>
+					<li>บทละครนอกเรื่องมณีพิชัย ตอนพราหมณ์ยอพระกลิ่นขอพระมณีพิไชยไปเปนทาษ</li>
+					<li>บทละครนอกเรื่องสังข์ทอง</li>
+					<li>บทละครนอกเรื่องสังข์ศิลป์ชัย</li>
+					<li>บทละครนอกเรื่องอภัยนุราช</li>
+					<li>บทละครนอกเรื่องไกรทอง</li>
+					<li>บทละครนอกเรื่องไชยเชษฐ์</li>
+					<li>บทละครเรื่องยุขัน</li>
+					<li>บทละครเรื่องระเด่นลันได</li>
+					<li>บทละคอนเรื่องพระศรีเมือง</li>
+					<li>บทละครเรื่องรามเกียรติ์ รัชกาลที่ ๑</li>
+					<li>ลักษณะวงศ์</li>
+					<li>อิเหนา</li>
+					<li>แก้วหน้าม้า</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				กลอนสุภาพ
+                </td>
+                <td>
+                  <ul>
+                    <li>พระอภัยมณี</li>
+					<li>กากีกลอนสุภาพ</li>
+					<li>ขุนช้างขุนแผน</li>
+					<li>จันทโครพ</li>
+					<li>โคบุตร</li>
+                  </ul>
+                </td>
+              </tr>
+			<tr>
+                <td>
+				นิราศ
+                </td>
+                <td>
+                  <ul>
+                          <li>นิราศบางเรื่องของสุนทรภู่</li>
+						<li>นิราศพระแท่นดงรัง สามเณรกลั่น</li>
+						<li>นิราศรัตน</li>
+						<li>นิราศลอนดอน</li>
+						<li>นิราศวังบางยี่ขัน</li>
+						<li>นิราศวัดเจ้าฟ้า</li>
+						<li>นิราศหนองคาย</li>
+						<li>นิราศอิเหนา</li>
+						<li>นิราศเมืองหลวงพระบาง</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				กลอนสวด
+                </td>
+                <td>
+                  <ul>
+                    <li>นกกระจาบกลอนสวด</li>
+					<li>นางอุทัยกลอนสวด</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				กลอนหก
+                </td>
+                <td>
+                  <ul>
+                    <li>กนกนคร</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+		  <h4>TNHC set (v.1.0)</h4>
+		  <table class="table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Texts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+				โคลง
+                </td>
+                <td>
+                  <ul>
+                    <li>โคลงชะลอพระพุทธไสยาสน์</li>
+					<li>โคลงนิราศนรินทร์</li>
+					<li>โคลงนิราศพระพุทธบาท</li>
+					<li>โคลงนิราศหริภุญชัย</li>
+					<li>โคลงเรือลอยพระประทีป</li>
+					<li>โคลงเรื่องท้าวกาสี</li>
+					<li>โคลงโลกนิติ</li>
+					<li>กำสรวลโคลงดั้น</li>
+                  </ul>
+                </td>
+              </tr>
+			  
+			<tr>
+                <td>
+				กลอนบทละคร
+                </td>
+                <td>
+                  <ul>
+	
+                        <li>บทละครนอกเรื่องคาวี</li>
+						<li>บทละครเรื่องนางมโนห์รา</li>
+						<li>บทละครเรื่องสังข์ทอง</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				กลอนสุภาพ
+                </td>
+                <td>
+                  <ul>
+					<li>กากีคำกลอน</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				กาพย์
+                </td>
+                <td>
+                  <ul>
+					<li>กาพย์เห่เรือ</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				ร่าย
+                </td>
+                <td>
+                  <ul>
+					<li>ร่ายยาวมหาเวสสันดรชาดก กัณฑ์หิมพานต์</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				ลิลิต
+                </td>
+                <td>
+                  <ul>
+					<li>ลิลิตพระลอ</li>	
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				ฉันท์
+                </td>
+                <td>
+                  <ul>
+					<li>ฉันท์สรรเสริญพระเกียรติสมเด็จพระพุทธเจ้าหลวงปราสาททอง</li>
+                  </ul>
+                </td>
+              </tr>			                          
+			  <tr>
+                <td>
+				คำฉันท์
+                </td>
+                <td>
+                  <ul>
+
+						<li>พระรถคำฉันท์</li>
+						<li>ราชาพิลาป</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				เพลงยาว
+                </td>
+                <td>
+                  <ul>
+                        <li>เพลงยาวนมัสการพระบรมธาตุ นิราศไปตรัง</li>
+						<li>เพลงยาวพระยาตรัง</li>
+                  </ul>
+                </td>
+              </tr>
+				<tr>
+                <td>
+				นิราศ
+                </td>
+                <td>
+                  <ul>
+                    <li>นิราศนครวัด</li>
+					<li>นิราศลอนดอนและจดหมายเหตุเรื่องราชทูตไทยไปประเทศอังกฤษในรัชกาลที่ 4</li>
+					<li>นิราศเมืองแกลง</li>
+                  </ul>
+                </td>
+              </tr>
+                <td>
+				จดหมาย
+                </td>
+                <td>
+                  <ul>
+                    <li>จดหมายหลวงอุดมสมบัติ</li>
+					<li>จดหมายเหตุความทรงจำ ทั้งตอนพระราชวิจารณ์ แลตอนที่ได้ฉบับต่อใหม่</li>
+					<li>จดหมายเหตุรายวันของสมเด็จเจ้าฟ้ามหาวชิรุณหิศ</li>
+					<li>จดหมายเหตุสยามไสมย</li>
+					<li>จดหมายเหตุเรื่องตั้งเจ้าเมืองและพระบรมราโชวาทพระราชทานเจ้าเมือง</li>
+					<li>จดหมายเหตุเรื่องรับพระยาเศวตกุญชร ช้างเผือกแรกได้ในรัชกาลที่ 2 เมื่อปีวอก พ.ศ. 2355</li>
+					<li>หนังสือจดหมายเหตุ The Bangkok Recorder</li>
+                  </ul>
+                </td>
+              </tr>
+			  <tr>
+                <td>
+				อื่น ๆ
+                </td>
+                <td>
+                  <ul>
+                    <li>ตำราช้างคำโคลง</li>
+					<li>ตำรานพรัตน์</li>
+					<li>ตำราแบบธรรมเนียมในราชสำนักครั้งกรุงศรีอยุธยา</li>
+					<li>ต้นทางฝรั่งเศส</li>
+					<li>ประกาศคณะปฏิวัติ</li>
+					<li>พระบรมราโชวาทในรัชกาลที่ 5</li>
+					<li>พระราชสาส์นรัชกาลที่ 1</li>
+					<li>พระราชสาส์นในรัชกาลที่ 4</li>
+					<li>ศิลาจารึกวัดช้างล้อม</li>
+					<li>ศิลาจารึกวัดพระยืน</li>
+					<li>หนังสือแสดงกิจจานุกิจ</li>
+					<li>ขนมสมน้ำยา</li>
+					<li>รุไบยาต</li>
+
+					
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+		 
+        </div>
+      </div>
+	
+    </div>
     </div>
 
-    </div>
+    <footer class="page-footer font-small">
+      <div class="container">
+        <div class="row">
+             <div class="col-md-12 py-3">
+                  <div class="flex-center">
+                    <hr/>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
