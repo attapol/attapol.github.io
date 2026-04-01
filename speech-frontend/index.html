@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Frontend Demo</title>
+    <link rel="stylesheet" href="/speech-frontend/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Intro to Computational Linguistics</p>
+          <h1>Speech Frontend Demo</h1>
+          <p class="lead">
+            Record your voice, inspect the waveform, generate a spectrogram,
+            isolate a spectral feature vector, and apply log-mel features.
+          </p>
+        </div>
+
+        <div class="controls">
+          <button id="startButton" class="primary">Start recording</button>
+          <button id="stopButton" disabled>Stop</button>
+        </div>
+
+        <dl class="stats">
+          <div>
+            <dt>Status</dt>
+            <dd id="statusText">Idle</dd>
+          </div>
+          <div>
+            <dt>Input sample rate</dt>
+            <dd id="inputRateText">-</dd>
+          </div>
+          <div>
+            <dt>Analysis sample rate</dt>
+            <dd id="analysisRateText">16,000 Hz</dd>
+          </div>
+          <div>
+            <dt>Duration</dt>
+            <dd id="durationText">-</dd>
+          </div>
+          <div>
+            <dt>Frames</dt>
+            <dd id="frameCountText">-</dd>
+          </div>
+          <div>
+            <dt>Mel bins</dt>
+            <dd id="melBinsText">40</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <div>
+              <h2>Waveform</h2>
+            </div>
+          </div>
+          <canvas id="waveformCanvas" width="960" height="240"></canvas>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-header">
+            <div>
+              <h2>Spectrogram</h2>
+              <p>Short-time Fourier transform heatmap over time. The orange line marks the selected frame.</p>
+            </div>
+          </div>
+          <canvas id="spectrogramCanvas" width="960" height="320"></canvas>
+        </article>
+
+        <article class="panel panel-wide panel-compact">
+          <label class="slider-wrap slider-strip" for="frameSlider">
+            <span>Selected frame</span>
+            <input id="frameSlider" type="range" min="0" max="0" value="0" disabled />
+            <strong id="frameIndexText">0</strong>
+          </label>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Spectral Feature Vector</h2>
+              <p>Heatmap of one selected STFT spectrum slice before log-mel.</p>
+            </div>
+          </div>
+          <canvas id="frameCanvas" width="460" height="240"></canvas>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Log-Mel Frame</h2>
+              <p>The same selected time frame after mel filtering and log compression.</p>
+            </div>
+          </div>
+          <canvas id="melCanvas" width="460" height="240"></canvas>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/speech-frontend/app.js"></script>
+  </body>
+</html>
