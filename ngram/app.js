@@ -116,7 +116,7 @@ function setLoading(active) {
   }, delay);
 }
 function showCorpusStats() {
-  document.querySelector('#corpusStats').textContent = `${(model.metadata.encoded_tokens / 1e6).toFixed(1)}M TOKENS · ${model.metadata.vocabulary_size.toLocaleString()} WORDS`;
+  document.querySelector('#corpusStats').textContent = `${(model.metadata.encoded_tokens / 1e6).toFixed(1)}M TOKENS · ${(model.metadata.retained_contexts / 1e6).toFixed(1)}M CONTEXTS`;
 }
 function setButtonLabel() { runButton.firstChild.textContent = state.mode === 'completion' ? 'Predict ' : 'Generate '; }
 function displayToken(token) { return token === '</s>' ? '〈END〉' : token === '<unk>' ? '〈UNK〉' : token; }

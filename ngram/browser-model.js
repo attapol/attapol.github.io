@@ -6,19 +6,20 @@ class BrowserNGramModel {
     this.idToToken = [];
     this.unigramCounts = [];
     this.unigramTop = [];
-    this.orders = new Map();
-    this.loading = new Map();
+    this.shards = new Map();
+    this.loadingShards = new Map();
+    this.maxCachedShards = 96;
   }
 
   async init(onProgress = () => {}) {
-    onProgress('Loading vocabulary…');
-    const [metadataResponse, vocabularyResponse] = await Promise.all([
-      fetch(`${this.baseUrl}/metadata.json`),
-      fetch(`${this.baseUrl}/vocab.tsv`),
-    ]);
-    if (!metadataResponse.ok || !vocabularyResponse.ok) throw new Error('Could not load the static model');
+    onProgress('Loading full vocabulary…');
+    const metadataResponse = await fetch(`${this.baseUrl}/metadata.json`);
+    if (!metadataResponse.ok) throw new Error('Could not load model metadata');
     this.metadata = await metadataResponse.json();
-    const vocabulary = await vocabularyResponse.text();
+
+    const vocabularyResponse = await fetch(`${this.metadata.data_base}/vocab.tsv.gz`);
+    if (!vocabularyResponse.ok) throw new Error('Could not load the full vocabulary');
+    const vocabulary = await this.decompressText(vocabularyResponse);
     for (const line of vocabulary.split('\n')) {
       if (!line) continue;
       const firstTab = line.indexOf('\t');
@@ -30,36 +31,97 @@ class BrowserNGramModel {
       this.unigramCounts[id] = count;
       this.tokenToId.set(token, id);
     }
-    const total = this.unigramCounts.reduce((sum, count = 0) => sum + count, 0) || 1;
-    this.unigramTotal = total;
+
+    this.unigramTotal = this.unigramCounts.reduce((sum, count = 0) => sum + count, 0) || 1;
     this.unigramTop = this.unigramCounts
       .map((count = 0, id) => ({ id, count }))
       .filter(item => item.id !== 1 && item.count > 0)
       .sort((left, right) => right.count - left.count)
       .slice(0, 20);
-    onProgress('Loading core n-grams…');
-    await this.ensureOrder(3, onProgress);
   }
 
-  async ensureOrder(maxOrder, onProgress = () => {}) {
-    for (let order = 2; order <= maxOrder; order += 1) {
-      if (this.orders.has(order)) continue;
-      if (!this.loading.has(order)) this.loading.set(order, this.loadOrder(order, onProgress));
-      await this.loading.get(order);
+  async decompressText(response) {
+    const buffer = await this.decompressBuffer(response);
+    return new TextDecoder().decode(buffer);
+  }
+
+  async decompressBuffer(response) {
+    if (!globalThis.DecompressionStream) {
+      throw new Error('This browser does not support streaming gzip decompression');
+    }
+    const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
+    return new Response(stream).arrayBuffer();
+  }
+
+  tokenize(text) {
+    return text.trim().match(/[\p{L}\p{N}_]+(?:['’\-][\p{L}\p{N}_]+)*|[^\s\p{L}\p{N}_]/gu) || [];
+  }
+
+  tokenId(token) {
+    return this.tokenToId.get(token) ?? this.tokenToId.get(token.toLowerCase()) ?? 0;
+  }
+
+  contextHash(context) {
+    let value = 1469598103934665603n;
+    for (const tokenId of context) {
+      value ^= BigInt(tokenId);
+      value = BigInt.asUintN(64, value * 1099511628211n);
+    }
+    return Number(value % BigInt(this.metadata.bucket_count));
+  }
+
+  async complete(text, maxOrder, onProgress = () => {}) {
+    maxOrder = Math.max(2, Math.min(Number(maxOrder), Number(this.metadata.max_order)));
+    const tokens = this.tokenize(text);
+    const ids = [...Array(maxOrder - 1).fill(1), ...tokens.map(token => this.tokenId(token))];
+
+    for (let order = maxOrder; order >= 2; order -= 1) {
+      const context = ids.slice(-(order - 1));
+      const result = await this.lookup(order, context, onProgress);
+      if (result) return this.result(tokens, order, context, result.total, result.successors);
+    }
+    return this.result(tokens, 1, [], this.unigramTotal, this.unigramTop.map(item => [item.id, item.count]));
+  }
+
+  async lookup(order, context, onProgress) {
+    const bucket = this.contextHash(context);
+    const contexts = await this.loadShard(order, bucket, onProgress);
+    return contexts.get(context.join(','));
+  }
+
+  async loadShard(order, bucket, onProgress) {
+    const key = `${order}:${bucket}`;
+    if (this.shards.has(key)) {
+      const cached = this.shards.get(key);
+      this.shards.delete(key);
+      this.shards.set(key, cached);
+      return cached;
+    }
+    if (this.loadingShards.has(key)) return this.loadingShards.get(key);
+
+    const loading = this.fetchShard(order, bucket, onProgress);
+    this.loadingShards.set(key, loading);
+    try {
+      const contexts = await loading;
+      this.shards.set(key, contexts);
+      while (this.shards.size > this.maxCachedShards) {
+        this.shards.delete(this.shards.keys().next().value);
+      }
+      return contexts;
+    } finally {
+      this.loadingShards.delete(key);
     }
   }
 
-  async loadOrder(order, onProgress) {
-    onProgress(`Loading ${order}-gram contexts…`);
-    const response = await fetch(`${this.baseUrl}/order_${order}.bin`);
-    if (!response.ok) throw new Error(`Could not load order ${order}`);
-    const data = new DataView(await response.arrayBuffer());
-    const storedOrder = data.getUint32(8, true);
-    const recordCount = data.getUint32(12, true);
-    if (storedOrder !== order) throw new Error(`Invalid order ${order} model`);
+  async fetchShard(order, bucket, onProgress) {
+    onProgress(`Loading exact ${order}-gram shard ${bucket + 1}/512…`);
+    const part = String(bucket).padStart(3, '0');
+    const response = await fetch(`${this.metadata.data_base}/order_${order}/part_${part}.bin.gz`);
+    if (!response.ok) throw new Error(`Could not load ${order}-gram shard ${bucket}`);
+    const data = new DataView(await this.decompressBuffer(response));
     const contexts = new Map();
-    let offset = 16;
-    for (let record = 0; record < recordCount; record += 1) {
+    let offset = 0;
+    while (offset < data.byteLength) {
       const context = [];
       for (let index = 0; index < order - 1; index += 1) {
         context.push(data.getUint32(offset, true));
@@ -75,29 +137,7 @@ class BrowserNGramModel {
       }
       contexts.set(context.join(','), { total, successors });
     }
-    this.orders.set(order, contexts);
-    this.loading.delete(order);
-  }
-
-  tokenize(text) {
-    return text.trim().match(/[\p{L}\p{N}_]+(?:['’\-][\p{L}\p{N}_]+)*|[^\s\p{L}\p{N}_]/gu) || [];
-  }
-
-  tokenId(token) {
-    return this.tokenToId.get(token) ?? this.tokenToId.get(token.toLowerCase()) ?? 0;
-  }
-
-  async complete(text, maxOrder, onProgress = () => {}) {
-    maxOrder = Math.max(2, Math.min(Number(maxOrder), Number(this.metadata.max_order)));
-    await this.ensureOrder(maxOrder, onProgress);
-    const tokens = this.tokenize(text);
-    const ids = [...Array(maxOrder - 1).fill(1), ...tokens.map(token => this.tokenId(token))];
-    for (let order = maxOrder; order >= 2; order -= 1) {
-      const context = ids.slice(-(order - 1));
-      const result = this.orders.get(order).get(context.join(','));
-      if (result) return this.result(tokens, order, context, result.total, result.successors);
-    }
-    return this.result(tokens, 1, [], this.unigramTotal, this.unigramTop.map(item => [item.id, item.count]));
+    return contexts;
   }
 
   result(inputTokens, sourceOrder, context, total, successors) {
@@ -115,13 +155,14 @@ class BrowserNGramModel {
   }
 
   async generate(text, maxOrder, maxTokens = 100, temperature = 1, onProgress = () => {}) {
-    await this.ensureOrder(maxOrder, onProgress);
     const seedTokens = this.tokenize(text);
     const generated = [];
     const trace = [];
     let stopped = 'max_tokens';
     for (let step = 0; step < Math.min(Math.max(maxTokens, 1), 250); step += 1) {
-      const completion = await this.complete([...seedTokens, ...generated].join(' '), maxOrder);
+      const completion = await this.complete(
+        [...seedTokens, ...generated].join(' '), maxOrder, onProgress,
+      );
       if (!completion.predictions.length) { stopped = 'no_prediction'; break; }
       const weights = completion.predictions.map(item => Math.max(item.probability, 1e-12) ** (1 / Math.max(temperature, .05)));
       const choice = completion.predictions[this.weightedIndex(weights)].token;
