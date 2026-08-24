@@ -4,6 +4,11 @@ const context = document.querySelector('#context');
 const order = document.querySelector('#order');
 const runButton = document.querySelector('#runButton');
 const chart = document.querySelector('#chart');
+const loadingOverlay = document.querySelector('#loadingOverlay');
+const loadingTitle = document.querySelector('#loadingTitle');
+const loadingDetail = document.querySelector('#loadingDetail');
+let loadingStartedAt = performance.now();
+let loadingHideTimer;
 
 document.querySelectorAll('.mode').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('.mode').forEach(item => item.classList.toggle('active', item === button));
@@ -41,6 +46,7 @@ async function initialize() {
   } finally {
     runButton.disabled = !state.ready;
     if (state.ready) showCorpusStats();
+    setLoading(false);
     setButtonLabel();
   }
 }
@@ -57,6 +63,7 @@ async function run() {
   } finally {
     runButton.disabled = false;
     showCorpusStats();
+    setLoading(false);
     setButtonLabel();
   }
 }
@@ -84,7 +91,30 @@ async function generate() {
   document.querySelector('#generationMeta').textContent = `${data.tokens.length} tokens generated · ${backoffs} backoff steps · stopped: ${data.stopped.replace('_', ' ')}`;
 }
 
-function showProgress(message) { document.querySelector('#corpusStats').textContent = message.toUpperCase(); }
+function showProgress(message) {
+  document.querySelector('#corpusStats').textContent = message.toUpperCase();
+  loadingTitle.textContent = message.includes('vocabulary')
+    ? 'Learning the vocabulary'
+    : message.includes('-gram')
+      ? 'Extending model memory'
+      : 'Computing the next words';
+  loadingDetail.textContent = message;
+  setLoading(true);
+}
+function setLoading(active) {
+  clearTimeout(loadingHideTimer);
+  if (active) {
+    if (!loadingOverlay.classList.contains('active')) loadingStartedAt = performance.now();
+    loadingOverlay.classList.add('active');
+    loadingOverlay.setAttribute('aria-hidden', 'false');
+    return;
+  }
+  const delay = Math.max(0, 550 - (performance.now() - loadingStartedAt));
+  loadingHideTimer = setTimeout(() => {
+    loadingOverlay.classList.remove('active');
+    loadingOverlay.setAttribute('aria-hidden', 'true');
+  }, delay);
+}
 function showCorpusStats() {
   document.querySelector('#corpusStats').textContent = `${(model.metadata.encoded_tokens / 1e6).toFixed(1)}M TOKENS · ${model.metadata.vocabulary_size.toLocaleString()} WORDS`;
 }

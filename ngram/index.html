@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="loadingOverlay" class="loading-overlay active" role="status" aria-live="polite" aria-label="Loading language model">
+      <div class="loader-card">
+        <div class="loader-orbit" aria-hidden="true">
+          <span class="orbit-word orbit-one">3</span>
+          <span class="orbit-word orbit-two">5</span>
+          <span class="orbit-word orbit-three">7</span>
+          <span class="loader-core">N</span>
+        </div>
+        <p class="eyebrow">STREAMING MODEL MEMORY</p>
+        <h2 id="loadingTitle">Preparing the language lab</h2>
+        <p id="loadingDetail">Loading corpus vocabulary…</p>
+        <div class="loading-track" aria-hidden="true"><span></span></div>
+        <p class="loading-note">The model is cached by your browser after the first visit.</p>
+      </div>
+    </div>
     <header class="masthead">
       <a class="brand" href="/">N—GRAM <span>LAB</span></a>
       <div class="corpus"><span class="status-dot"></span><span id="corpusStats">Loading corpus…</span></div>
