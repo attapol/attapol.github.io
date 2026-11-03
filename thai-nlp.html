@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thai NLP - Attapol T.R.</title>
+    <style>
+      h2 { margin-top: 0; margin-bottom: 0.5rem; }
+      .meta { color: #666; font-size: 0.9rem; }
+      .project { margin-top: 2.75rem; }
+      .project h3 { font-size: 1.25rem; margin-bottom: 0.15rem; }
+      .project p { margin: 0.75rem 0 0; }
+      .links { margin-top: 0.6rem; font-size: 0.95rem; }
+      .links a + a { margin-left: 1rem; }
+      .fig { border: 1px solid #e5e5e5; padding: 1rem; margin-top: 0.9rem; overflow-x: auto; }
+      .fig .cap { color: #888; font-size: 0.8rem; margin-top: 0.7rem; }
+      .example .ex-th { font-size: 0.9rem; line-height: 1.8; }
+      .example .ex-en { margin-top: 0.3rem; font-size: 0.85rem; color: #444; }
+      .ud { display: flex; flex-wrap: wrap; gap: 0 1.6rem; }
+      .ud-tok { display: flex; flex-direction: column; align-items: center; }
+      .ud-pos { font-family: Menlo, Consolas, "Courier New", monospace; font-size: 0.72rem; color: #666; margin-top: 0.3rem; letter-spacing: 0.02em; }
+      .arg1 { font-style: normal; }
+      .arg2 { font-weight: 700; }
+      .conn { text-decoration: underline; text-underline-offset: 3px; }
+      .example .sense { color: #666; font-size: 0.8rem; white-space: nowrap; }
+      .gloss { display: flex; flex-wrap: wrap; gap: 0 1.1rem; margin-bottom: 0.5rem; }
+      .g-tok { display: flex; flex-direction: column; }
+      .g-th { font-size: 0.9rem; line-height: 1.6; }
+      .g-en { font-size: 0.8rem; color: #555; }
+      .g-en .sc { font-variant: small-caps; letter-spacing: 0.03em; }
+      .example .tag { color: #888; font-size: 0.65rem; letter-spacing: 0.03em; margin-left: 0.1rem; }
+      .example mark { background: #eef0f4; padding: 0.05rem 0.2rem; color: inherit; }
+      .fig figure { margin: 0 0 1rem; }
+      .fig figure:last-child { margin-bottom: 0; }
+      .fig img { max-width: 100%; height: auto; display: block; }
+      .fig figcaption { color: #888; font-size: 0.8rem; margin-top: 0.5rem; }
+    </style>
+  </head>
+
+  <body>
+    <div id="included_navbar"> </div>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-9">
+
+          <h2>Thai NLP</h2>
+          <p class="meta">Selected contributions to Thai natural language processing.</p>
+
+          <div class="project">
+            <h3>AttaCut</h3>
+            <div class="fig">
+              <figure>
+                <img loading="lazy" src="https://i.imgur.com/8yMq7IB.png" alt="Model architecture (3-layer dilated CNN)">
+                <figcaption>Model Architecture</figcaption>
+              </figure>
+            </div>
+            <p>A fast and accurate neural Thai word tokenizer. The model comprises a three-layer dilated CNN over character and syllable features, running at least 5.6x faster and outperforming prior state-of-the-art systems on selected domains.</p>
+            <div class="links">
+              <a href="https://github.com/PyThaiNLP/attacut" target="_blank">GitHub</a>
+              <a href="https://arxiv.org/abs/1911.07056" target="_blank">Paper (arXiv)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>PhayaThaiBERT POS tagger</h3>
+            <div class="fig">
+              <figure class="example">
+                <div class="ud">
+                  <div class="ud-tok"><span class="ud-w">กาลเวลา</span><span class="ud-pos">NOUN</span></div>
+                  <div class="ud-tok"><span class="ud-w">มิ</span><span class="ud-pos">ADV</span></div>
+                  <div class="ud-tok"><span class="ud-w">อาจ</span><span class="ud-pos">AUX</span></div>
+                  <div class="ud-tok"><span class="ud-w">ขวาง</span><span class="ud-pos">VERB</span></div>
+                  <div class="ud-tok"><span class="ud-w">กั้น</span><span class="ud-pos">VERB</span></div>
+                </div>
+                <figcaption>Example</figcaption>
+              </figure>
+            </div>
+            <p>A UPOS Part-of-Speech tagging model, based on fine-tuned PhayaThaiBERT and trained on the Thai Universal Dependency Treebank (see ThaiUD below). Reaches 0.91 accuracy and 0.81 macro F1 on the test set. Best used with pre-segmented words, e.g. from AttaCut.</p>
+            <div class="links">
+              <a href="https://huggingface.co/nlp-chula/phayathaibert-thai-pos-tagger" target="_blank">Hugging Face</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>ThaiUD</h3>
+            <div class="meta">TACL 2025</div>
+             <div class="fig">
+              <figure>
+                <img loading="lazy" src="image/thaiud.png" alt="Figure from the Thai Discourse Treebank paper (TACL 2024)">
+                <figcaption>Example from Paper</figcaption>
+              </figure>
+            </div>
+            <p>A Thai Universal Dependency (UD) treebank with 3,627 trees sampled from the Thai National Corpus and Thai Wikipedia, annotated with 15 UPOS tags and 35 dependency relations. The release includes benchmark transformer parsers pre-trained on TUD and Thai-PUD, and the test-set predictions and confusion matrices of 92 models.</p>
+            <div class="links">
+              <a href="https://github.com/nlp-chula/TUD" target="_blank">GitHub</a>
+              <a href="https://universaldependencies.org/treebanks/th_tud" target="_blank">Universal Dependencies</a>
+              <a href="https://doi.org/10.1162/tacl_a_00745" target="_blank">Paper (TACL)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>ThaiCoref</h3>
+            <div class="fig">
+              <figure class="example">
+                <div class="ex-th">หลังจากนั้นผมก็เดินไป<mark>พูดคุย</mark><sub>x</sub>กับเพื่อนๆ ตามปกติ ในระหว่าง<mark>การพูดคุยนั้น</mark><sub>x</sub>ผมคิดว่าผมยังไม่ถอดเสื้อกาวน์ออก</div>
+                <div class="ex-en">"After that, I walked and <mark>chatted</mark><sub>x</sub> with my friends as usual. During <mark>the conversation</mark><sub>x</sub>, I realized that I had not taken off my gown yet."</div>
+                <figcaption>Example from Paper</figcaption>
+              </figure>
+              <figure>
+                <img loading="lazy" src="img/thai-nlp/thaicoref.png" alt="Figure from the ThaiCoref paper (arXiv 2406.06000)">
+                <figcaption>Figure from the ThaiCoref paper (arXiv 2406.06000)</figcaption>
+              </figure>
+            </div>
+            <p>A large Thai coreference resolution dataset, comprising 777,271 tokens, 44,082 mentions, and 10,429 entities across university essays, newspapers, speeches, and Wikipedia articles. The annotation scheme builds upon OntoNotes with adjustments for Thai-specific features. The best baseline, a multilingual encoder with cross-lingual transfer, reaches 0.68 F1.</p>
+            <div class="links">
+              <a href="https://github.com/nlp-chula/thai-coref" target="_blank">GitHub</a>
+              <a href="https://link.springer.com/article/10.1007/s10579-025-09898-1" target="_blank">Paper (LRE)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>Thai Discourse Treebank</h3>
+            <div class="meta">TACL 2024</div>
+             <div class="fig">
+              <figure class="example">
+                <div class="gloss">
+                  <div class="g-tok arg1"><span class="g-th">ตำรวจ</span><span class="g-en">police</span></div>
+                  <div class="g-tok arg1"><span class="g-th">ได้</span><span class="g-en"><span class="sc">perf</span></span></div>
+                  <div class="g-tok arg1"><span class="g-th">จับ</span><span class="g-en">arrest</span></div>
+                  <div class="g-tok arg1"><span class="g-th">คนร้าย</span><span class="g-en">criminal</span></div>
+                  <div class="g-tok arg1"><span class="g-th">แล้ว</span><span class="g-en"><span class="sc">perf</span></span></div>
+                </div>
+                <div class="gloss">
+                  <div class="g-tok conn"><span class="g-th">ซึ่ง</span><span class="g-en">in.this.regard</span></div>
+                  <div class="g-tok arg2"><span class="g-th">ความ</span><span class="g-en"><span class="sc">nom</span></span></div>
+                  <div class="g-tok arg2"><span class="g-th">คืบหน้า</span><span class="g-en">advance</span></div>
+                  <div class="g-tok arg2"><span class="g-th">จะ</span><span class="g-en"><span class="sc">prsp</span></span></div>
+                  <div class="g-tok arg2"><span class="g-th">ได้</span><span class="g-en">get</span></div>
+                  <div class="g-tok arg2"><span class="g-th">รายงาน</span><span class="g-en">report</span></div>
+                  <div class="g-tok arg2"><span class="g-th">ต่อไป</span><span class="g-en">next</span></div>
+                </div>
+                <div class="ex-en">&lsquo;<span class="arg1">The police have arrested the criminal.</span> <span class="conn">In regard to this</span>, <span class="arg2">further developments will be reported later</span>.&rsquo; <span class="sense">(Expansion.GenExpansion)</span></div>
+                <figcaption>Example from Paper</figcaption>
+              </figure>
+            </div>
+            <p>The first large Thai corpus with explicit discourse relations à la Penn Discourse Treebank 3, comprising 10,602 sentences from 384 documents, about 18,000 connective instances and 33 relations. The release includes a list of 148 potentially polysemous connectives with 340 form-sense pairs. Baselines reach 0.96 F1 for connective identification and 0.46 for sense classification.</p>
+            <div class="links">
+              <a href="https://github.com/nlp-chula/thai-discourse-treebank" target="_blank">GitHub</a>
+              <a href="https://doi.org/10.1162/tacl_a_00650" target="_blank">Paper (TACL)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>SCB-MT-EN-TH-2020</h3>
+            <div class="fig">
+              <figure>
+                <img loading="lazy" src="img/thai-nlp/scb-mt-en-th.png" alt="Figure from the SCB-MT-EN-TH-2020 paper (arXiv 2007.03541)">
+                <figcaption>Figure from the SCB-MT-EN-TH-2020 paper (arXiv 2007.03541)</figcaption>
+              </figure>
+            </div>
+            <p>An English-Thai parallel corpus of 1,001,752 segment pairs from news, Wikipedia, SMS, task-based dialogs, web crawls, and government documents, released with the alignment and filtering pipeline. Transformer models trained on this corpus perform comparably to the Google Translation API (as of May 2020), and outperform it in both directions when Open Parallel Corpus data is added.</p>
+            <div class="links">
+              <a href="https://huggingface.co/datasets/airesearch/scb_mt_enth_2020" target="_blank">Hugging Face (dataset)</a>
+              <a href="https://github.com/vistec-AI/dataset-releases/releases/tag/scb-mt-en-th-2020_v1.0" target="_blank">GitHub (dataset)</a>
+              <a href="https://github.com/vistec-AI/thai2nmt" target="_blank">GitHub (models)</a>
+              <a href="https://arxiv.org/abs/2007.03541" target="_blank">Paper (arXiv)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>JAI-1</h3>
+            <div class="fig">
+              <figure>
+                <img loading="lazy" src="img/thai-nlp/jai1-architecture.png" alt="Figure 1: JAI-1 (75B) architecture. JAI-1 technical report (arXiv 2510.08620)">
+                <figcaption>Figure 1: JAI-1 (75B) architecture. JAI-1 technical report (arXiv 2510.08620)</figcaption>
+              </figure>
+              <figure>
+                <img loading="lazy" src="img/thai-nlp/jai1-dus.png" alt="Figure 2: depth up-scaling strategies. JAI-1 technical report">
+                <figcaption>Figure 2: depth up-scaling strategies. JAI-1 technical report</figcaption>
+              </figure>
+            </div>
+            <p>A Thai-centric language model with 75B parameters, constructed by systematically integrating Thai-language knowledge to a smaller, high-performing English model. Pre-training involved 1.5T tokens, over 300B of which are Thai, while post-training utilized more than 600K instruction-based examples. The model outperforms Typhoon2-70B on IFEval-TH, MT-Bench-TH and JAI-Hall-Bench benchmarks. The open-source OpenJAI-v1.0 release is a separate 14B model built on Qwen3-14B (Apache-2.0).</p>
+            <div class="links">
+              <a href="https://huggingface.co/JTS-AI/OpenJAI-v1.0-14B" target="_blank">OpenJAI-v1.0 (Hugging Face)</a>
+              <a href="https://arxiv.org/abs/2510.08620" target="_blank">JAI-1 Paper (arXiv)</a>
+              <a href="https://arxiv.org/abs/2510.06847" target="_blank">OpenJAI-v1.0 Paper (arXiv)</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>JAI-TTS</h3>
+            <div class="fig">
+              <figure>
+                <img loading="lazy" src="img/thai-nlp/jai-tts.png" alt="Figure from the JaiTTS paper (arXiv 2604.27607)">
+                <figcaption>Figure from the JaiTTS paper (arXiv 2604.27607)</figcaption>
+              </figure>
+            </div>
+            <p>A state-of-the-art autoregressive Thai voice cloning text-to-speech model built on VoxCPM. Trained on a Thai-centric speech corpus of 10,000 hours, the model is able to read raw text with numerals and Thai–English code-switching without additional text normalization steps. Reaches a 1.94% CER on short utterances, slightly surpassing the human ground truth of 1.98%, and matches humans on long utterances. Wins 283 of 400 pairwise comparisons against commercial flagships (59 ties, 58 losses) in human judgment evaluations.</p>
+            <div class="links">
+              <a href="https://huggingface.co/JTS-AI/OpenJaiTTS-v1.0" target="_blank">Hugging Face</a>
+              <a href="https://arxiv.org/abs/2604.27607" target="_blank">Paper (arXiv)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer font-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 py-3">
+            <div class="flex-center"><hr/></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script> $(function(){ $("#included_navbar").load("nav.htm"); }); </script>
+
+    <script>
+      document.querySelectorAll('.fig img').forEach(function (img) {
+        function hide() {
+          var fig = img.closest('figure'), box = img.closest('.fig');
+          fig.remove();
+          if (!box.querySelector('figure')) box.remove();
+        }
+        img.addEventListener('error', hide);
+        if (img.complete && img.naturalWidth === 0) hide();
+      });
+    </script>
+    
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

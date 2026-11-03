@@ -6,86 +6,260 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NLP courses at Chulalongkorn University - Attapol T.R.</title>
+    <title>Teaching - Attapol T.R.</title>
+    <style>
+      h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+      h3 { font-size: 1.15rem; margin-top: 1.5rem; }
+      .course { margin-bottom: 1.25rem; }
+      .course-title { font-weight: 700; }
+      .course .code { font-weight: 400; color: #888; font-size: 0.85rem; margin-left: 0.4rem; white-space: nowrap; }
+      .course p { margin: 0.25rem 0 0; }
+      h4.group { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin: 2rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #e5e5e5; }
+      .meta { color: #666; font-size: 0.9rem; }
+      details { margin-bottom: 0.6rem; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.6rem; }
+      details > summary { cursor: pointer; font-weight: 700; }
+      details .inner { margin-top: 0.8rem; }
+      .yt-label { font-size: 0.9rem; color: #666; margin: 0.8rem 0 0.3rem; }
+      .yt-wrap { position: relative; width: 100%; max-width: 640px; padding-top: 360px; }
+      @media (max-width: 700px) { .yt-wrap { padding-top: 56.25%; } }
+      .yt-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    </style>
   </head>
 
   <body>
-		<div id="included_navbar"> </div>
+    <div id="included_navbar"> </div>
 
-	  <div class="container">
-		<div class="row mt-5">
-			<div class="col-lg-12">
-        <h2>Demo</h2>
-        <ul>
-          <li><a href="speech-frontend/">Speech Frontend</a></li>
-        </ul>
-			  <h2>Teaching</h2>
-          <p>
-          <ul>
-            <li><a href="https://attapol.github.io/programming/archived2018.html" target="_blank">Fall 2018: Programming for Natural Language Processing (NLP I)</a></li>
-            <li><a href="https://attapol.github.io/syntax" target="_blank">Fall 2018: Formal Syntax</a></li>
-            <li><a href="https://attapol.github.io/compling" target="_blank">Spring 2019: Computational Linguistics (NLP II)</a></li>
-            <li>Spring 2019: Semantics</li>
-            <li><a href="https://attapol.github.io/programming" target="_blank">Fall 2019: Programming for Natural Language Processing (NLP I)</a></li>
-            <li>Fall 2019: Formal Syntax</li>
-            <li>Spring 2020: Computational Linguistics (NLP II)</li>
-            <li>Spring 2020: Natural Language Understanding and Systems(NLP III)</li>
-          </ul>
-          </p>
-        <h2>สนใจศึกษาด้าน NLP ที่จุฬาฯ หรือศึกษาด้วยตัวเองต้องทำอย่างไร</h2>
-          <p>ผมเปิดสอนวิชา NLP ทุกระดับตั้งแต่ศูนย์ถึงขั้นที่นำไปใช้ได้จริง ที่คณะอักษรศาสตร์ จุฬาฯ โดยมีวิชาที่เป็นวิชาหลักจริงๆ สามารถนำไปประยุกต์ใช้ได้ทันทีอยู่สามวิชา คือ</p>
-          <ul>
-            <li><a href="https://attapol.github.io/programming">NLP I: การเขียนโปรแกรมเพื่อนำไปทำ NLP</a>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-12">
+
+          <h2 style="margin-top:0">Current Courses</h2>
+          <p class="meta">Offered at the Department of Linguistics, Faculty of Arts, Chulalongkorn University
+            <br>by Attapol T. Rutherford and Jakapun Tachaiya.</p>
+
+          <h4 class="group">Core NLP Courses</h4>
+          <div class="course">
+            <div class="course-title"><a href="https://drive.google.com/file/d/1L_znynXLgme8ELa9AKdmoPYx3iXEuYmw/view" target="_blank">NLP I: Basic Programming for Natural Language Processing</a></div>
+            <div class="meta">2209261/2209671 &middot; Jakapun &middot; Fall &middot; Fri 13:00&ndash;16:00</div>
+            <p>Programming class focused on using NLP to process and analyze text. For those with no programming background.</p>
+          </div>
+          <div class="course">
+            <div class="course-title"><a href="https://drive.google.com/file/d/1LHu49oXLCQdjyxy6X9h8Sc2lMPfSmAEJ/view" target="_blank">NLP II: Introduction to Computational Linguistics</a></div>
+            <div class="meta">2209372/2209670 &middot; Attapol &middot; Spring &middot; Fri 13:00&ndash;16:00</div>
+            <p>Fundamental NLP models and classic NLP tasks.</p>
+          </div>
+          <div class="course">
+            <div class="course-title"><a href="https://drive.google.com/file/d/1LBVemqwLzT-eU-EQ9QscM-wEMcUtjZ37/view" target="_blank">NLP III: Natural Language Processing Systems</a></div>
+            <div class="meta">2209678 &middot; Attapol &middot; Fall &middot; Tue 13:00&ndash;16:00</div>
+            <p>Continuation of NLP II with an emphasis on cutting-edge research and a hands-on final research project.</p>
+          </div>
+
+          <h4 class="group">Special Topics</h4>
+          <div class="course">
+            <div class="course-title"><a href="https://drive.google.com/file/d/1LL4TGr-vWDEgNMUU-0j9wYRACVgecBPu/view" target="_blank">Large Language Models</a></div>
+            <div class="meta">2209707 &middot; Jakapun &middot; Spring &middot; Wed 13:00&ndash;16:00</div>
+            <p>Technical treatment of large language models from pre-training and post-training to deployment.</p>
+          </div>
+          <div class="course">
+            <div class="course-title"><a href="https://app.notion.com/p/attapol/Computational-Social-Science-27364afb8c7f8041b523d82c767e9d2b?source=copy_link" target="_blank">Selected Topics in Language Technology: Computational Social Science</a></div>
+            <div class="meta">2209390 &middot; Attapol &middot; Spring (Odd years) &middot; Thu 13:00&ndash;16:00</div>
+            <p>Discussion-based (no hands-on) seminar on the impacts of NLP on social science. No background in programming or NLP necessary.</p>
+          </div>
+          <div class="course">
+            <div class="course-title">Natural Language Understanding</a></div>
+            <div class="meta">2209384 &middot; Attapol &middot; Spring (Even years) &middot; Thu 13:00&ndash;16:00</div>
+            <p>Technical hands-on experience on assembling an NLP system, such as chatbot, question-answering system, and voicebot.</p>
+          </div>
+
+          <h2>Course Taught</h2>
+          <div class="course">
+            <div class="course-title">NLP I</div>
+            <div class="meta">Fall 2018, 2019, 2021, 2022, 2023</div>
+          </div>
+          <div class="course">
+            <div class="course-title">NLP II</div>
+            <div class="meta">Spring 2019, 2020, 2021, 2022, 2023, 2025, 2026</div>
+          </div>
+          <div class="course">
+            <div class="course-title">NLP III</div>
+            <div class="meta">Fall 2020, 2022, 2023, 2025, 2026</div>
+          </div>
+          <div class="course">
+            <div class="course-title">NLU (ex-NLP III)</div>
+            <div class="meta">Spring 2020, 2021, 2022, 2023, 2025</div>
+          </div>
+          <div class="course">
+            <div class="course-title">Computational Social Science</div>
+            <div class="meta">Spring 2026</div>
+          </div>
+          <div class="course">
+            <div class="course-title">Natural Language Processing, ISE Chula</div>
+            <div class="meta">Fall 2025, 2026</div>
+          </div>
+          <div class="course">
+            <div class="course-title">Syntax</div>
+            <div class="meta">Fall 2018, 2019, 2020, 2021</div>
+          </div>
+          <div class="course">
+            <div class="course-title">Semantics</div>
+            <div class="meta">Spring 2019</div>
+          </div>
+
+          <h2>หากสนใจศึกษาด้าน NLP ที่จุฬาฯ หรือด้วยตัวเอง <br> ต้องทำอย่างไร</h2>
+          <p>ผมเปิดสอนวิชา NLP ทุกระดับตั้งแต่ศูนย์จนถึงนำไปใช้ได้จริงที่ภาควิชาภาษาศาสตร์ คณะอักษรศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย โดยมีวิชาหลักที่สามารถนำไปประยุกต์ใช้ได้ทันทีทั้งหมดสามวิชา ได้แก่</p>
+
+          <details>
+            <summary>NLP I: การเขียนโปรแกรมเพื่อนำไปทำ NLP</summary>
+            <div class="inner">
+              <p><a href="https://attapol.github.io/programming" target="_blank">เว็บไซต์รายวิชา</a></p>
               <ul>
-                <li>ครึ่งแรกเน้นพื้นฐานการเขียนโปรแกรมตั้งแต่ยังไม่มีพื้นฐานเลย เรียนรู้จากตัวอย่างโปรแกรมต่างๆ ที่เกี่ยวกับ NLP </li>
-                <li>ครึ่งหลังพูดเรื่อง Object-oriented programming การดึงข้อมูลจากอินเตอร์เน็ตผ่าน API การใช้ package ต่างๆ ในการตัดคำ แท็กคำด้วย part of speech และการ parse ประโยค และจบด้วย Machine Learning (supervised learning)</li>
+                <li>สามารถเขียนโปรแกรมเพื่อประมวลผลข้อมูลจำพวกข้อความและตัวเลข</li>
+                <li>สามารถดึงข้อมูลจากอินเตอร์เนตเพื่อนำมาวิเคราะห์ด้วยเทคนิคทาง NLP</li>
+                <li>เน้นพื้นฐานการคิดเชิงคำนวณ (computational thinking) และการเขียนโปรแกรมตั้งแต่ระดับเบื้องต้น โดยเรียนรู้จากตัวอย่างโปรแกรมต่างๆ ที่เกี่ยวข้องกับ NLP ไปจนถึง OOP (object-oriented programming), การดึงข้อมูลจากอินเตอร์เน็ตผ่าน API, การใช้แพ็กเกจสำหรับการตัดคำ ระบุชนิดคำ และวิเคราะห์ประโยค, และ Machine Learning (เฉพาะ supervised learning)</li>
               </ul>
-            </li>
-            <li><a href="https://attapol.github.io/compling">NLP II: โมเดลหลักๆ ที่ใช้ใน NLP ทั้งหมด</a> (เปิดสอนม.ค. 2562 เป็นเทอมแรก)
+            </div>
+          </details>
+
+          <details>
+            <summary>NLP II: หัวข้อและโมเดลสำคัญในงาน NLP</summary>
+            <div class="inner">
+              <p><a href="https://attapol.github.io/compling" target="_blank">เว็บไซต์รายวิชา</a></p>
               <ul>
-                <li>Logistic regression - การวิเคราะห์ความรู้สึก (sentiment analysis)</li>
-                <li>Structured Prediction - การวิเคราะห์โครงสร้างประโยคอัตโนมัติ (phrase structure parse) การวิเคราะห์ประโยคเชิงพึ่งพิง (dependency parse)</li>
-                <li>Conditional Random Fields - การตรวจหาคำที่สื่อถึงตัวตน (Named-entity recognition)</li>
-                <li>Search (Information Retrieval) - การสร้าง search engine</li> 
-                <li>Language Model - โมเดลสำหรับการคำนวณบริบททางภาษาเพื่อใช้สำหรับ การแปลงเสียงเป็นตัวอักษร (speech recognition) เครื่องแปลภาษา (machine translation) และการตรวจแก้การสะกดผิด ความผิดพลาดทางไวยากรณ์</li>
-                <li>Word embeddings - ใช้ตัวเลขหรือเวคเตอร์ในการคำนวณความหมายของคำและประโยค</li>
-                <li>Deep learning - multilayer perceptron, LSTM, Convolutional Network</li>
+                <li>ต่อยอดจากพื้นฐานความรู้ใน NLP I</li>
+                <li>Text Classification - การจำแนกข้อความ เช่น การวิเคราะห์ความรู้สึก (sentiment analysis)</li>
+                <li>Language Modeling - การสร้างแบบจำลองภาษา เช่น n-gram และ word embeddings</li>
+                <li>Information Retrieval - การค้นคืนข้อมูล เช่น ระบบเสิร์ช (search engine) และระบบถาม-ตอบ (question answering)</li>
+                <li>Information Extraction - การสกัดข้อมูล เช่น การระบุชื่อเฉพาะ (named-entity recognition)</li>
+                <li>Language Generation - การสร้างข้อความภาษาอัตโนมัติ เช่น การแปลภาษาโดยเครื่อง (machine translation) และการแปลงข้อมูลเสียงเป็นข้อความ (speech recognition)</li>
+                <li>Logistic regression, Conditional random fields, Feedforward neural networks, RNNs, LLMs, Transformers, Seq2Seq models</li>
               </ul>
-            </li>
-            <li><a href="https://docs.google.com/document/d/13eaMHR8kl9HbIPPfY0B6bhNVybhWaOVdQNdmNp6BlgE/edit?usp=sharing">NLP III: การสร้างระบบ NLP ขั้นสูง</a> (เปิดสอนม.ค. 2563 เป็นเทอมแรก)</li>
+            </div>
+          </details>
+
+          <details>
+            <summary>NLP III: การสร้างระบบ NLP ขั้นสูง</summary>
+            <div class="inner">
+              <p><a href="https://docs.google.com/document/d/13eaMHR8kl9HbIPPfY0B6bhNVybhWaOVdQNdmNp6BlgE/edit?usp=sharing" target="_blank">รายละเอียดวิชา</a></p>
               <ul>
-                <li>Speech Recognition - เครื่องแปลงเสียงเป็นตัวอักษร</li>
-                <li>Targeted ads and recommendation systems - ระบบเลือกโฆษณาและ content ให้ผู้ใช้ที่เหมาะสม</li>
-                <li>Conversational Agents and chatbots - หุ่นยนต์นักสนทนา</li>
-                <li>Question answering system - ระบบตอบคำถามอัตโนมัติ</li>
-                <li>Relation Extractions and Knowledge Graphs - ระบบสกัดความรู้และความสัมพันธ์ระหว่าง concepts</li>
-                <li>Corpus construction - หลักการสร้างคลังข้อมูลเพื่อใช้สำหรับ NLP systems</li>
-            </ul>
+                <li>ต่อยอดจากพื้นฐานความรู้ใน NLP II เน้นงานวิจัยล่าสุดและโปรเจกต์วิจัยขั้นสุดท้ายที่ได้ลงมือทำจริง</li>
+                <li>พื้นฐาน NLP ยุคปัจจุบัน ได้แก่ Deep Learning และ Transformers</li>
+                <li>สถาปัตยกรรมโมเดล NLP ยุคปัจจุบัน เช่น BERT, Flan, BART, T5 และ GPT</li>
+                <li>การแปลงประโยคภาษาธรรมชาติให้อยู่ในรูปเวคเตอร์ (sentence representation)</li>
+                <li>ตัวอย่างการประยุกต์ใช้ NLP ขั้นสูง เช่น ระบบสกัดความรู้และความสัมพันธ์ (relation extraction) ระบบถาม-ตอบ (question-answering) และการเชื่อมโยงโมเดลภาษาขนาดใหญ่เข้ากับแหล่งความรู้ภายนอก (retrieval-augmented generation)</li>
+              </ul>
+            </div>
+          </details>
+
+          <p class="mt-3">ทั้งสามวิชานั้นสามารถศึกษาด้วยตนเองได้ผ่านเว็บไซต์รายวิชา ซึ่งประกอบด้วยคลิปวิดีโอเลคเชอร์เนื้อหาหลักๆ ครบทั้งรายวิชา และที่สำคัญ ยังมีแบบฝึกหัดการเขียนโปรแกรม NLP เพื่อทดสอบความเข้าใจ และเสริมสร้างทักษะให้นำความรู้ไปประยุกต์ใช้จริงได้ ทั้งนี้ หากเรียนสดที่มหาวิทยาลัย จะมีเนื้อหา ตัวอย่างเสริม และช่วงถามตอบข้อสงสัยเกี่ยวกับแบบฝึกหัดและเนื้อหาที่ผ่านมา รวมถึงคำแนะนำในการทำโปรเจกต์ตามความสนใจ</p>
+          <p>หากไม่มีพื้นฐานการเขียนโปรแกรมมาก่อน หรือรู้สึกว่าตัวเองยังเขียนโปรแกรมได้ไม่ถนัดนัก แนะนำให้เริ่มต้นที่ <b>NLP I</b></p>
+          <p>หากมีประสบการณ์การเป็นผู้พัฒนา (developer) หรือสามารถเขียนโปรแกรมได้คล่องแล้ว สามารถเริ่มต้นที่ <b>NLP II</b> ได้ทันที</p>
+
+
+          <h2>Video Lectures</h2>
+ 
+          <details>
+            <summary>NLP I</summary>
+            <div class="inner">
+              <p><a href="https://attapol.github.io/programming" target="_blank">Course website</a></p>
+              <details>
+                <summary>2025</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHruyoYDpG4rM3rLr3hodMwj" title="NLP I 2025" allowfullscreen></iframe></div></div>
+              </details>
+              <details>
+                <summary>2022</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHqGMZj_AxGyjT1IaigB34sz" title="NLP I 2022" allowfullscreen></iframe></div></div>
+              </details>
+              <details>
+                <summary>2020</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHrcRn3Aa18bqlyqjAxuVYji" title="NLP I 2020" allowfullscreen></iframe></div></div>
+              </details>
+              <details>
+                <summary>2018</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHonswACFytZDCeDxUNvreX-" title="NLP I 2018" allowfullscreen></iframe></div></div>
+              </details>
+            </div>
+          </details>
+ 
+          <details>
+            <summary>NLP II</summary>
+            <div class="inner">
+              <p><a href="https://attapol.github.io/compling" target="_blank">Course website</a></p>
+              <details>
+                <summary>2026</summary>
+                <div class="inner">
+                  <div class="yt-label">Playlist 1</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHpkDFoyuVA5m5AmecwcdYRW" title="NLP II 2026 playlist 1" allowfullscreen></iframe></div>
+                  <div class="yt-label">Playlist 2</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHqBZSVSvsGpeJQgnJ4Jo1y7" title="NLP II 2026 playlist 2" allowfullscreen></iframe></div>
+                  <div class="yt-label">Playlist 3</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHr-Q4AMZFXN8dscyRSKZt7J" title="NLP II 2026 playlist 3" allowfullscreen></iframe></div>
+                  <div class="yt-label">Playlist 4</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHq-T03puM3yS5fV0r2ogWxG" title="NLP II 2026 playlist 4" allowfullscreen></iframe></div>
+                </div>
+              </details>
+              <details>
+                <summary>2025</summary>
+                <div class="inner">
+                  <div class="yt-label">Playlist 1</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHqMMX1fQm49x56Eg3igw7Mp" title="NLP II 2025 playlist 1" allowfullscreen></iframe></div>
+                  <div class="yt-label">Playlist 2</div>
+                  <div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHqMEJyNl4dJ_GNMKCY9awF0" title="NLP II 2025 playlist 2" allowfullscreen></iframe></div>
+                </div>
+              </details>
+              <details>
+                <summary>2023</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHpCAaG6dot5xXrlEK73oF4J" title="NLP II 2023" allowfullscreen></iframe></div></div>
+              </details>
+              <details>
+                <summary>2018</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHpDieqWwr7hTgreKnYSY9Ox" title="NLP II 2018" allowfullscreen></iframe></div></div>
+              </details>
+            </div>
+          </details>
+ 
+          <details>
+            <summary>Syntax</summary>
+            <div class="inner">
+              <p><a href="https://attapol.github.io/syntax" target="_blank">Course website</a></p>
+              <details>
+                <summary>2018</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHqeBay1rdt6o7uc7RK7z-ca" title="Formal Syntax 2018" allowfullscreen></iframe></div></div>
+              </details>
+            </div>
+          </details>
+ 
+          <details>
+            <summary>Introduction to Language (Syntax)</summary>
+            <div class="inner">
+              <details>
+                <summary>2018</summary>
+                <div class="inner"><div class="yt-wrap"><iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="https://www.youtube.com/embed/videoseries?list=PLyyEwPZh6aHrAh1cMmCgy7Lf1ysJXa4OK" title="Introduction to Language 2018" allowfullscreen></iframe></div></div>
+              </details>
+            </div>
+          </details>
+
+          <h2>Demo</h2>
+          <ul>
+            <li><a href="speech-frontend/">Speech Frontend</a></li>
           </ul>
-          <p>ทั้งสามวิชานั้นสามารถศึกษาด้วยตนเองได้ครับ เพราะเว็บไซต์วิชาจะมีวิดีโอเนื้อหาหลักๆ อยู่ทั้งหมดและที่สำคัญคือมีแบบฝึกหัดการเขียนโปรแกรม NLP เพื่อทดสอบความเข้าใจ และเสริมสร้างทักษะให้นำความรู้ไปใช้ในการประยุกต์ใช้จริงได้ ถ้าเรียนสดที่มหาวิทยาลัยผมจะมีเนื้อหา ตัวอย่างเสริม และตอบข้อสงสัยเกี่ยวกับแบบฝึกหัดและเนื้อหาที่ผ่านมา รวมถึง
-          ให้คำแนะนำในการทำ Projects ตามที่สนใจ
-          </p>
-          <p>ถ้าไม่มีพื้นฐานการเขียนโปรแกรมมาก่อน หรือเขียนโปรแกรมยังไม่ค่อยคล่องนักแนะนำให้เริ่มที่ NLP I </p>
-          <p>หากมีประสบการณ์การเป็น developer หรือเขียนโปรแกรมได้คล่องแล้วสามารถเริ่มต้นที่ NLP II ได้ทันที</p>
+
+        </div>
       </div>
     </div>
 
-    </div>
     <footer class="page-footer font-small">
       <div class="container">
         <div class="row">
-             <div class="col-md-12 py-3">
-                  <div class="flex-center">
-                    <hr/>
-                  </div>
-            </div>
+          <div class="col-md-12 py-3">
+            <div class="flex-center"><hr/></div>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-			<script> $(function(){ $("#included_navbar").load("nav.htm"); }); </script>
+    <script> $(function(){ $("#included_navbar").load("nav.htm"); }); </script>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
